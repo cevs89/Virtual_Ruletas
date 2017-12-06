@@ -507,8 +507,8 @@
             $('#current').text('JUEGO ACTUAL : #' + countdown.games[0].game);
         });
 
-        socket.on('start', function(win){
-            fortune(win.deg);
+        socket.on('start-europea', function(win){
+            fortune(win.degrees);
         });
 
         socket.on('statistics-europea', function(best){
