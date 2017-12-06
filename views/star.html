@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>STAR HD</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="/star/css/styles.css">
+    <link rel="stylesheet" href="/star/css/sidebar.css">
+    <style type="text/css">
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+        }
+        .board__logo {
+            position: absolute;
+            width: 120px;
+            height: 100px;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        .board__logo__content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 160px;
+        }
+        .board__logo--img2 {
+            background-image: url(/img/americana.png);
+            height: 80px;
+            width: 220px;
+            bottom: 10px;
+            left: 10px;
+        }
+        .board__logo--img3 {
+            background-image: url(/img/cojedes.png);
+            height: 130;
+            width: 90px;
+            top: 10px;
+            right: 10px;
+        }
+        .board__logo--img4 {
+            background-image: url(/img/conalot.png);
+            height: 65px;
+            width: 140px;
+            bottom: 50px;
+            right: 10px;
+        }
+        .dados {
+            background-image: url(/img/dados.png);
+            width: 200px;
+            height: 80px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-size: 100% 100%;
+            z-index: 1000000;
+        }
+        .board__content__content--rulete {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="body">
+
+
+    <div class="board">
+      <div class="dados"></div>
+      <div class="board__logo board__logo--img2"></div>
+      <div class="board__logo board__logo--img3"></div>
+      <div class="board__logo board__logo--img4"></div>
+
+        <div class="board__header">
+            <div>CURRENT GAME #112245</div>
+        </div>
+        <div class="board__content">
+
+            <div class="board__content__content--rulete">
+
+                <div class="board__content__rulete">
+
+                    <div class="winner">06</div>
+                    <div class="arrow"></div>
+
+                    <div class="countdown">3</div>
+                    <div class="countdown countdown--1">2</div>
+                    <div class="countdown countdown--2">GO!</div>
+
+                    <div class="board__content__rulete__madera"></div>
+                    <div class="board__content__rulete__content">
+                        <div class="board__content__rulete__content__img roulette"></div>
+                    </div>
+
+                    <div class="board__content__rulete__light board__content__rulete__light--1"></div>
+                    <div class="board__content__rulete__light board__content__rulete__light--2"></div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="board__footer">
+            <div class="countdownLeftOver">
+                <span class="best">BEST CLOSE IN</span>
+                <span class="countdownLeftOver__minutes">00</span>
+                <span class="countdownLeftOver__divider">:</span>
+                <span class="countdownLeftOver__seconds">00</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bar">
+        <div class="bar__proggress">
+            <div class="bar__proggress__height"></div>
+        </div>
+    </div>
+
+    <section class="sidebar">
+        <div class="sidebar__header">
+            <div class="payTable">
+                <div class="payTable__row payTable__row--title">PAY TABLE</div>
+                <div class="payTable__row">
+                    <span class="payTable__row__color">COLOR</span>
+                    <div class="payTable__row__content">
+                        <span class="payTable__row__content__number bg__red">2</span>
+                        <span class="payTable__row__content__number bg__black">2</span>
+                        <span class="payTable__row__content__number bg__green">36</span>
+                    </div>
+                </div>
+                <div class="payTable__row">
+                    <span class="payTable__row__color">DOZENS</span>
+                    <div class="payTable__row__content">
+                        <span class="payTable__row__content__number bg__blue">3</span>
+                    </div>
+                </div>
+                <div class="payTable__row">
+                    <span class="payTable__row__color">EVEN / ODD</span>
+                    <div class="payTable__row__content">
+                        <span class="payTable__row__content__number bg__blue">2</span>
+                    </div>
+                </div>
+                <div class="payTable__row">
+                    <span class="payTable__row__color">NUMBER</span>
+                    <div class="payTable__row__content">
+                        <span class="payTable__row__content__number bg__blue">36</span>
+                    </div>
+                </div>
+            </div>
+            <div class="lastestGame">
+                <div class="lastestGame__row lastestGame__row--title">LATEST GAME</div>
+                <div class="lastestGame__row lastestGame__row--top">
+                    <span class="lastestGame__row__current">#112239</span>
+                    <span class="lastestGame__row__number bg__red">18</span>
+                </div>
+                <div class="lastestGame__row">
+                    <span class="lastestGame__row__current">#112237</span>
+                    <span class="lastestGame__row__number bg__red">5</span>
+                </div>
+                <div class="lastestGame__row">
+                    <span class="lastestGame__row__current">#112235</span>
+                    <span class="lastestGame__row__number bg__black">4</span>
+                </div>
+                <div class="lastestGame__row">
+                    <span class="lastestGame__row__current">#112233</span>
+                    <span class="lastestGame__row__number bg__black">26</span>
+                </div>
+                <div class="lastestGame__row">
+                    <span class="lastestGame__row__current">#112231</span>
+                    <span class="lastestGame__row__number bg__black">17</span>
+                </div>
+                <div class="lastestGame__row">
+                    <span class="lastestGame__row__current">#112229</span>
+                    <span class="lastestGame__row__number bg__black">24</span>
+                </div>
+                <div class="lastestGame__row">
+                    <span class="lastestGame__row__current">#112227</span>
+                    <span class="lastestGame__row__number bg__black">8</span>
+                </div>
+                <div class="lastestGame__row">
+                    <span class="lastestGame__row__current">#112225</span>
+                    <span class="lastestGame__row__number bg__black">6</span>
+                </div>
+            </div>
+        </div>
+        <div class="statistiscs">
+            <div class="statistiscs__numbers">
+                <div class="statistiscs__numbers__title">NUMBER (LAST 120 DRAWS)</div>
+                <div class="statistiscs__numbers__rows statistiscs__numbers__rows__top">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">1</div>
+                        <div class="statistiscs__numbers__rows__row__coint">4</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">13</div>
+                        <div class="statistiscs__numbers__rows__row__coint">2</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">25</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">1</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__rows">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">2</div>
+                        <div class="statistiscs__numbers__rows__row__coint">5</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">14</div>
+                        <div class="statistiscs__numbers__rows__row__coint">3</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">26</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">6</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__rows">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">3</div>
+                        <div class="statistiscs__numbers__rows__row__coint">6</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">15</div>
+                        <div class="statistiscs__numbers__rows__row__coint">4</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">27</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">2</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__rows">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">4</div>
+                        <div class="statistiscs__numbers__rows__row__coint">5</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">16</div>
+                        <div class="statistiscs__numbers__rows__row__coint">2</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">28</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">2</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__rows">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">5</div>
+                        <div class="statistiscs__numbers__rows__row__coint">1</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">17</div>
+                        <div class="statistiscs__numbers__rows__row__coint">3</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">29</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">4</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__rows">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">6</div>
+                        <div class="statistiscs__numbers__rows__row__coint">4</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">18</div>
+                        <div class="statistiscs__numbers__rows__row__coint">5</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">30</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">5</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__rows">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">7</div>
+                        <div class="statistiscs__numbers__rows__row__coint">5</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">19</div>
+                        <div class="statistiscs__numbers__rows__row__coint">0</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">31</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">9</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__rows">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">8</div>
+                        <div class="statistiscs__numbers__rows__row__coint">8</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">20</div>
+                        <div class="statistiscs__numbers__rows__row__coint">2</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">32</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">0</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__rows">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">9</div>
+                        <div class="statistiscs__numbers__rows__row__coint">1</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">21</div>
+                        <div class="statistiscs__numbers__rows__row__coint">1</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">33</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">5</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__rows">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">10</div>
+                        <div class="statistiscs__numbers__rows__row__coint">2</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">22</div>
+                        <div class="statistiscs__numbers__rows__row__coint">5</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">34</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">3</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__rows">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">11</div>
+                        <div class="statistiscs__numbers__rows__row__coint">1</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">23</div>
+                        <div class="statistiscs__numbers__rows__row__coint">1</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">35</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">3</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__rows">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">12</div>
+                        <div class="statistiscs__numbers__rows__row__coint">4</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">24</div>
+                        <div class="statistiscs__numbers__rows__row__coint">3</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">36</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">2</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__rows">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__green">0</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">1</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__title">DOZENS (LAST 120 DRAWS)</div>
+                <div class="statistiscs__numbers__rows statistiscs__numbers__rows__top">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__blue">1-12</div>
+                        <div class="statistiscs__numbers__rows__row__coint">46</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__blue">13-24</div>
+                        <div class="statistiscs__numbers__rows__row__coint">31</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__blue">25-36</div>
+                        <div class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">43</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__title">COLORS (LAST 120 DRAWS)</div>
+                <div class="statistiscs__numbers__rows statistiscs__numbers__rows__top">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">46</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">73</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__green statistiscs__numbers__rows__row__coint--none">1</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__title">HOT / COLD NUMBER (LAST 120 DRAWNS)</div>
+                <div class="statistiscs__numbers__rows statistiscs__numbers__rows__top">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black bg__hot">HOT</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black">31</div>
+                        <div class="statistiscs__numbers__rows__row__number bg__black">8</div>
+                        <div class="statistiscs__numbers__rows__row__number bg__red">3</div>
+                        <div class="statistiscs__numbers__rows__row__number bg__black">26</div>
+                        <div class="statistiscs__numbers__rows__row__number bg__black statistiscs__numbers__rows__row__coint--none">2</div>
+                    </div>
+                </div>
+                <div class="statistiscs__numbers__rows">
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__black bg__blue">COLD</div>
+                    </div>
+                    <div class="statistiscs__numbers__rows__row">
+                        <div class="statistiscs__numbers__rows__row__number bg__red">32</div>
+                        <div class="statistiscs__numbers__rows__row__number bg__red">19</div>
+                        <div class="statistiscs__numbers__rows__row__number bg__green">0</div>
+                        <div class="statistiscs__numbers__rows__row__number bg__red">25</div>
+                        <div class="statistiscs__numbers__rows__row__number bg__red statistiscs__numbers__rows__row__coint--none">23</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <audio id="loop" src="/audio/loop.mp3" preload="auto"></audio>
+    <audio id="countdown" src="/audio/countdown.mp3" preload="auto"></audio>
+    <audio id="rullete" src="/audio/rullete.mp3" preload="auto"></audio>
+
+    <!-- DEPENDENCIAS -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/jquery-ui.min.js"></script>
+    <script src="/lib/TweenMax.min.js"></script>
+
+    <!-- SCRIPT -->
+    <script src="/star/js/global.js"></script>
+    <script src="/star/js/fortune.js"></script>
+    <script src="/star/js/init.js"></script>
+
+    <script type="text/javascript">
+        var socket = io();
+
+        socket.on('countdown', function(countdown){
+            const seconds = (parseInt(countdown[0]) * 60) + parseInt(countdown[1]);
+            const percentage = parseInt((seconds * 100) / 300);
+
+            $('.bar__proggress__height').css('height', percentage + '%');
+
+            if (percentage <= 15) {
+                $('.bar__proggress__height').css('background-color', '#b72f20');
+            } else if (percentage <= 30) {
+                $('.bar__proggress__height').css('background-color', '#b76720');
+            } else if (percentage <= 60) {
+                $('.bar__proggress__height').css('background-color', '#a29320');
+            } else {
+                $('.bar__proggress__height').css('background-color', '#29902d');
+            }
+
+            $('.countdownLeftOver__minutes').text(countdown[0]);
+            $('.countdownLeftOver__seconds').text(countdown[1]);
+        });
+
+        socket.on('start', function(win){
+
+            if (win) {
+                fortune(win);
+            }else {
+                fortune();
+            }
+
+        });
+
+        socket.on('best-close', function(best){
+
+            if (best) {
+                $('.best').addClass('.close');
+            } else {
+                $('.best').removeClass('close');
+            }
+
+        });
+    </script>
+</body>
+</html>

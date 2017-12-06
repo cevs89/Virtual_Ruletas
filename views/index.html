@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LOTTO ESTRELLA</title>
+	<style type="text/css">
+		body {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.ruletas {
+			display: flex;
+		}
+		img.r {
+			width: 150px;
+			height: 150px;
+		}
+		img.logo {
+			width: 300px;
+			height: 111px;
+		}
+		h4 {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1><img class="logo" src="img/logo.png"></h1>
+		<h4>Selecciona una ruleta</h4>
+		<div class="ruletas">
+			<a href="#" id="star"><img class="r" src="/star/img/logo.png"></a>
+			<a href="#" id="victoria"><img class="r" src="/victoria/img/logo.png"></a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		document.getElementById('star').addEventListener('click', function(event){
+			event.preventDefault();
+
+			openWindow('star');
+		});
+
+		document.getElementById('victoria').addEventListener('click', function(event){
+			event.preventDefault();
+
+			openWindow('victoria');
+		});
+
+		function openWindow(nameWindow) {
+			window.open('./' + nameWindow, 'ruleta_' + nameWindow, 'top=0,left=0,width='+(screen.availWidth)+',height ='+(screen.availHeight)+',fullscreen=yes,toolbar=0 ,location=0,directories=0,status=0,menubar=0,resiz able=0,scrolling=0,scrollbars=0');
+		}
+	</script>
+</body>
+</html>
