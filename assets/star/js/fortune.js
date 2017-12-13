@@ -1,15 +1,4 @@
 function fortune(options) {
-
-    options = checkOptions(options);
-
-    if(checkOptions === false){
-        return console.log('Error en los datos');
-    }
-
-    options = $.extend({}, defaultOptions, options);
-
-    spinning = true;
-
     $('.board__content__rulete__light--1 .lights.lights--child18 .lights__light').css('display', 'none');
 
     $('.spin').addClass('spinner');
@@ -130,9 +119,9 @@ function checkOptions(options) {
 	} else { return false; }
 }
 
-function spin(options) {
+function spin(win) {
 	let turns = 1;
-	let $elem = $(options.elem);
+	let $elem = $('.roulette');
 
 	let preview = 0;
 	let gradosActual;
@@ -141,8 +130,8 @@ function spin(options) {
 
 	return new Promise((resolve, reject) =>{
 		try {
-			$({ deg: 0 }).animate({ deg: (options.turns * 360) + options.deg }, {
-				duration: options.duration,
+			$({ deg: 0 }).animate({ deg: (8 * 360) + win }, {
+				duration: 31000,
 				easing: 'easeOutExpo',
 				step: function(now) {
 					let ide;
@@ -165,7 +154,7 @@ function spin(options) {
 						gradosActual > idePreview ||
 						(idePreview === 360 && gradosActual >= 0 && gradosActual <= 9.473684210526316)
 					) {
-						$('.arrow').css({transition: 'all linear .03s'}).addClass('move'); console.log('move')
+						$('.arrow').css({transition: 'all linear .03s'}).addClass('move');
 
 						setTimeout(function(){
 							$('.arrow').css({transition: 'all linear .2s'}).removeClass('move');
@@ -182,7 +171,7 @@ function spin(options) {
 					idePreview = squares[ide].position.end;
 				},
 				complete: function() {
-					resolve(options.square)
+					resolve(win)
 				}
 			});
 		} catch (error) {
