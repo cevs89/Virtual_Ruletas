@@ -604,27 +604,37 @@
                 return response.json()
             })
             .then(function(blob) {
+
+                $('.board__logo--img4, .board__logo--img2, .board__logo--img3, .dados').css({
+                    'background-image': 'none'
+                });
+
                 if (blob.data) {
-                    $('.dados').css({
-                        'background-image': 'url(' + (blob.data.topLeft && (blob.data.topLeft !== '') ? 
-                            ('http://104.236.132.136:6600/img/' + blob.data.topLeft) : '/img/dados.png') + ')'
-                    });
 
-                    $('.board__logo--img3').css({
-                        'background-image': 'url(' + (blob.data.topRight && (blob.data.topRight !== '') ? 
-                            ('http://104.236.132.136:6600/img/' + blob.data.topRight) : '/img/cojedes.png') + ')'
-                    });
+                    if (blob.data.topLeft && blob.data.topLeft !== '') {
+                        $('.dados').css({
+                            'background-image': 'url(' + ('http:104.236.132.136:6600/img/' + blob.data.topLeft) + ')'
+                        });
+                    }
 
-                    $('.board__logo--img2').css({
-                        'background-image': 'url(' + (blob.data.bottomLeft && (blob.data.bottomLeft !== '') ? 
-                            ('http://104.236.132.136:6600/img/' + blob.data.bottomLeft) : '/victoria/img/logo.png') + ')'
-                    });
+                    if (blob.data.topRight && blob.data.topRight !== '') {
+                        $('.board__logo--img3').css({
+                            'background-image': 'url(' + ('http://104.236.132.136:6600/img/' + blob.data.topRight) + ')'
+                        });
+                    }
 
-                    $('.board__logo--img4').css({
-                        'background-image': 'url(' + (blob.data.bottomRight && (blob.data.bottomRight !== '') ? 
-                            ('http://104.236.132.136:6600/img/' + blob.data.bottomRight) : '/img/conalot.png') + ')'
-                    });
-                }
+                    if (blob.data.bottomLeft && blob.data.bottomLeft !== '') {
+                       $('.board__logo--img2').css({
+                            'background-image': 'url(' + ('http://104.236.132.136:6600/img/' + blob.data.bottomLeft) + ')'
+                        });
+                    }
+
+                    if (blob.data.bottomRight && blob.data.bottomRight !== '') {
+                        $('.board__logo--img4').css({
+                            'background-image': 'url(' + ('http://104.236.132.136:6600/img/' + blob.data.bottomRight) + ')'
+                        });
+                    }
+                };
             });
         }
 
