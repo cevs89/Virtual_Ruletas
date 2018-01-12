@@ -586,9 +586,9 @@
 
 
         function loadImagenes() {
-            const token = window.location.pathname.split('/victoria/')[1];
+            const token = window.location.pathname.split('/victoria/');
 
-            if (token) {
+            if (token[1] && token[1].legth > 15) {
                 const headers = new Headers({
                     token: token
                 });
