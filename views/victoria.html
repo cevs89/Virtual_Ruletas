@@ -470,7 +470,7 @@
 
     <!-- DEPENDENCIAS  -->
 
-    <script src="http://162.243.255.105:6600/socket.io/socket.io.js"></script>
+    <script src="http://localhost:6600/socket.io/socket.io.js"></script>
 
     <script src="/lib/jquery.min.js"></script>
     <script src="/lib/jquery-ui.min.js"></script>
@@ -482,7 +482,7 @@
     <script src="/victoria/js/init.js"></script>
 
     <script type="text/javascript">
-        var socket = io('http://162.243.255.105:6600/best-europea');
+        var socket = io('http://localhost:6600/best-europea');
 
         socket.emit('current', true);
 
@@ -598,37 +598,38 @@
                 cache: 'default'
             };
 
-            fetch('http://162.243.255.105:6600/imagenes/' + token, miInit)
+            fetch('http://localhost:6600/imagenes/' + token, miInit)
             .then(function(response) {
-                console.log(response);
                 return response.json()
             })
             .then(function(blob) {
 
-
                 if (blob.data) {
+
+                    $('.board__logo--img4, .board__logo--img2, .board__logo--img3, .dados').css({                    'background-image': 'none'
+                    });
 
                     if (blob.data.topLeft && blob.data.topLeft !== '') {
                         $('.dados').css({
-                            'background-image': 'url(' + ('http://162.243.255.105:6600/img/' + blob.data.topLeft) + ')'
+                            'background-image': 'url(' + ('http://localhost:6600/img/' + blob.data.topLeft) + ')'
                         });
                     }
 
                     if (blob.data.topRight && blob.data.topRight !== '') {
                         $('.board__logo--img3').css({
-                            'background-image': 'url(' + ('http://162.243.255.105:6600/img/' + blob.data.topRight) + ')'
+                            'background-image': 'url(' + ('http://localhost:6600/img/' + blob.data.topRight) + ')'
                         });
                     }
 
                     if (blob.data.bottomLeft && blob.data.bottomLeft !== '') {
                        $('.board__logo--img2').css({
-                            'background-image': 'url(' + ('http://162.243.255.105:6600/img/' + blob.data.bottomLeft) + ')'
+                            'background-image': 'url(' + ('http://localhost:6600/img/' + blob.data.bottomLeft) + ')'
                         });
                     }
 
                     if (blob.data.bottomRight && blob.data.bottomRight !== '') {
                         $('.board__logo--img4').css({
-                            'background-image': 'url(' + ('http://162.243.255.105:6600/img/' + blob.data.bottomRight) + ')'
+                            'background-image': 'url(' + ('http://localhost:6600/img/' + blob.data.bottomRight) + ')'
                         });
                     }
                 };
