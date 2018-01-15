@@ -11,7 +11,7 @@ function fortune(options) {
     );
 
     // Posicionar la arrow
-    $('.arrow').addClass('spinner');
+    // $('.arrow').addClass('spinner');
     $('.winner').removeClass('spinner');
 
     // Iniciar Cuenta atras
@@ -33,7 +33,7 @@ function fortune(options) {
         $('.diamond').removeClass('fash').addClass('spinner');
 
     $('.winner').css({ background: colors[0] }).text('').addClass('spinner');
-		$('.arrow').css({ transition: 'initial' });
+		// $('.arrow').css({ transition: 'initial' });
 
         spin(options).then(function(winnerSquare){
             $('.diamond').addClass('fash').removeClass('spinner');
@@ -41,10 +41,10 @@ function fortune(options) {
 
             setTimeout(function(){
                 $('.winner').removeClass('win');
-                $('.arrow').css({ transition: 'all ease 2s' }).removeClass('spinner');
+                // $('.arrow').css({ transition: 'all ease 2s' }).removeClass('spinner');
                 $('.diamond').removeClass('fash');
 
-                $('.board__content__rulete__light--1 .lights.lights--child18 .lights__light').css('display', 'block');
+                // $('.board__content__rulete__light--1 .lights.lights--child18 .lights__light').css('display', 'block');
 
                 TweenLite.to(
                     '.spin', 1, {
