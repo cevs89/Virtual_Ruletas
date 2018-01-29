@@ -34,21 +34,25 @@
         }
         .board__logo--img2 {
             background-image: url(/star/img/logo.png);
-            width: 170px;
+            width: 100px;
+            height: 20px;
+            min-height: 10%;
             bottom: 5px;
             left: 6px;
         }
         .board__logo--img3 {
             background-image: url(/img/cojedes.png);
-            height: 130;
-            width: 90px;
+            min-height: 10%;
+            width: 10%;
             top: 10px;
             right: 10px;
         }
         .board__logo--img4 {
             background-image: url(/img/conalot.png);
-            height: 65px;
-            width: 140px;
+            width: 120px;
+            height: 60px;
+            min-width: 10%;
+            min-height: 5%;
             bottom: 50px;
             right: 10px;
         }
@@ -60,8 +64,8 @@
         }
         .dados {
             background-image: url(/img/dados.png);
-            width: 200px;
-            height: 80px;
+            width: 150px;
+            min-height: 10%;
             position: absolute;
             top: 10px;
             left: 10px;
@@ -70,7 +74,7 @@
         }
         .full{
           position: fixed;
-          bottom: 160px;
+          bottom: 120px;
           left: 10px;
           display: flex;
           width: 16px;
@@ -78,7 +82,7 @@
         }
         .zoom {
             position: fixed;
-            bottom: 120px;
+            bottom: 80px;
             left: 10px;
             display: flex;
             width: 16px;
@@ -572,7 +576,7 @@
                     return response.json()
                 })
                 .then(function(blob) {
-                    
+
                     if (blob.data) {
 
                         $('.board__logo--img4, .board__logo--img2, .board__logo--img3, .dados').css({                    'background-image': 'none'
