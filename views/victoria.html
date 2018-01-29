@@ -315,7 +315,7 @@
                     </div>
                     <div class="statistiscs__numbers__rows__row">
                         <div class="statistiscs__numbers__rows__row__number bg__red">30</div>
-                        <div id="ds-39" class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">0</div>
+                        <div id="ds-30" class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">0</div>
                     </div>
                 </div>
                 <div class="statistiscs__numbers__rows">
@@ -482,46 +482,7 @@
     <script src="/victoria/js/init.js"></script>
 
     <script type="text/javascript">
-        var socket = io('http://162.243.255.105:6600/best-europea');
-
-        socket.emit('current', true);
-
-        socket.on('countdown', function(countdown){
-            const seconds = (parseInt(countdown.time[0]) * 60) + parseInt(countdown.time[1]);
-            const percentage = parseInt((seconds * 100) / 300);
-
-            $('.bar__proggress__height').css('height', percentage + '%');
-
-            if (percentage <= 15) {
-                $('.bar__proggress__height').css('background-color', '#b72f20');
-            } else if (percentage <= 30) {
-                $('.bar__proggress__height').css('background-color', '#b76720');
-            } else if (percentage <= 60) {
-                $('.bar__proggress__height').css('background-color', '#a29320');
-            } else {
-                $('.bar__proggress__height').css('background-color', '#29902d');
-            }
-
-            $('.countdownLeftOver__minutes').text(countdown.time[0]);
-            $('.countdownLeftOver__seconds').text(countdown.time[1]);
-            $('#current').text('JUEGO ACTUAL : #' + countdown.game);
-        });
-
-        socket.on('start', function(win){
-            fortune(win.degrees);
-        });
-
-        socket.on('statistics', function(best){
-            estadisticas(best)
-        });
-
-        socket.on('close', function(best){
-            if (best) {
-              $('.best').addClass('.close');
-            } else {
-              $('.best').removeClass('close');
-            }
-        });
+        var socket;
 
         function estadisticas(bt) {
             const bests = bt;
@@ -552,7 +513,7 @@
                 }
 
                 if (index <= 7) {
-                    $('#row__current' + index).text('#' + best.game);
+                    $('#row__current' + index).text('#' + best.event);
                     $('#lastestGame__row__number' + index)
                     .css({ background: colors[c] })
                     .text(best.number);
@@ -588,9 +549,10 @@
         function loadImagenes() {
             const token = window.location.pathname.split('/victoria/');
 
-            if (token[1] && token[1].legth > 15) {
+            if (token[1]) {
+
                 const headers = new Headers({
-                    token: token
+                    token: token[1]
                 });
 
                 const miInit = {
@@ -600,12 +562,12 @@
                     cache: 'default'
                 };
 
-                fetch('http://162.243.255.105:6600/imagenes/' + token, miInit)
+                fetch('http://162.243.255.105:6600/v1/imagenes/' + token[1], miInit)
                 .then(function(response) {
                     return response.json()
                 })
                 .then(function(blob) {
-
+                    
                     if (blob.data) {
 
                         $('.board__logo--img4, .board__logo--img2, .board__logo--img3, .dados').css({                    'background-image': 'none'
@@ -635,8 +597,55 @@
                             });
                         }
                     };
+
+                    if (blob.moneda) {
+                        initSocket('europea', blob.moneda.code);
+                    }
                 });
             }
+        }
+
+        function initSocket(product, moneda) {
+            socket = io('http://162.243.255.105:6600/best-' + 'europea-' + moneda);
+
+            socket.emit('current', true); 
+
+            socket.on('countdown', function(countdown){
+                const seconds = (parseInt(countdown.timer[0]) * 60) + parseInt(countdown.timer[1]);
+                const percentage = parseInt((seconds * 100) / 300);
+
+                $('.bar__proggress__height').css('height', percentage + '%');
+
+                if (percentage <= 15) {
+                    $('.bar__proggress__height').css('background-color', '#b72f20');
+                } else if (percentage <= 30) {
+                    $('.bar__proggress__height').css('background-color', '#b76720');
+                } else if (percentage <= 60) {
+                    $('.bar__proggress__height').css('background-color', '#a29320');
+                } else {
+                    $('.bar__proggress__height').css('background-color', '#29902d');
+                }
+
+                $('.countdownLeftOver__minutes').text(countdown.timer[0]);
+                $('.countdownLeftOver__seconds').text(countdown.timer[1]);
+                $('#current').text('JUEGO ACTUAL : #' + countdown.event);
+            });
+
+            socket.on('start', function(win){
+                fortune(win.degrees);
+            });
+
+            socket.on('statistics', function(best){
+                estadisticas(best)
+            });
+
+            socket.on('close', function(best){
+                if (best) {
+                $('.best').addClass('.close');
+                } else {
+                $('.best').removeClass('close');
+                }
+            });
         }
 
         loadImagenes();

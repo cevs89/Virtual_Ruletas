@@ -315,7 +315,7 @@
                     </div>
                     <div class="statistiscs__numbers__rows__row">
                         <div class="statistiscs__numbers__rows__row__number bg__red">30</div>
-                        <div id="ds-39" class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">0</div>
+                        <div id="ds-30" class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">0</div>
                     </div>
                 </div>
                 <div class="statistiscs__numbers__rows">
@@ -405,13 +405,13 @@
                 <div class="statistiscs__numbers__rows">
                     <div class="statistiscs__numbers__rows__row">
                         <div class="statistiscs__numbers__rows__row__number bg__green">0</div>
-                        <div id="ds-0" class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">0</div>
+                        <div id="ds-37" class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">0</div>
                     </div>
                 </div>
                 <div class="statistiscs__numbers__rows">
                     <div class="statistiscs__numbers__rows__row">
                         <div class="statistiscs__numbers__rows__row__number bg__green">00</div>
-                        <div id="ds-0" class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">0</div>
+                        <div id="ds-38" class="statistiscs__numbers__rows__row__coint statistiscs__numbers__rows__row__coint--none">0</div>
                     </div>
                 </div>
                 <div class="statistiscs__numbers__title">DOCENAS (ÚLTIMOS 120 SORTEOS)</div>
@@ -476,7 +476,7 @@
 
     <!-- DEPENDENCIAS  -->
 
-    <script src="http://104.236.132.136:6600/socket.io/socket.io.js"></script>
+    <script src="http://localhost:6600/socket.io/socket.io.js"></script>
 
     <script src="/lib/jquery.min.js"></script>
     <script src="/lib/jquery-ui.min.js"></script>
@@ -488,46 +488,7 @@
     <script src="/star/js/init.js"></script>
 
     <script type="text/javascript">
-        var socket = io('http://162.243.255.105:6600/best');
-
-        socket.emit('current', true);
-
-        socket.on('countdown', function(countdown){
-            const seconds = (parseInt(countdown.time[0]) * 60) + parseInt(countdown.time[1]);
-            const percentage = parseInt((seconds * 100) / 300);
-
-            $('.bar__proggress__height').css('height', percentage + '%');
-
-            if (percentage <= 15) {
-                $('.bar__proggress__height').css('background-color', '#b72f20');
-            } else if (percentage <= 30) {
-                $('.bar__proggress__height').css('background-color', '#b76720');
-            } else if (percentage <= 60) {
-                $('.bar__proggress__height').css('background-color', '#a29320');
-            } else {
-                $('.bar__proggress__height').css('background-color', '#29902d');
-            }
-
-            $('.countdownLeftOver__minutes').text(countdown.time[0]);
-            $('.countdownLeftOver__seconds').text(countdown.time[1]);
-            $('#current').text('JUEGO ACTUAL : #' + countdown.games[0].game);
-        });
-
-        socket.on('start-americana', function(win){
-            fortune(win.degrees);
-        });
-
-        socket.on('statistics-americana', function(best){
-            estadisticas(best)
-        });
-
-        socket.on('close', function(best){
-            if (best) {
-              $('.best').addClass('.close');
-            } else {
-              $('.best').removeClass('close');
-            }
-        });
+        var socket;
 
         function estadisticas(bt) {
             const bests = bt;
@@ -537,12 +498,12 @@
             let ds2536 = 0;
             let color = [0, 0, 0];
 
-            for(let i = 0; i <= 37; i++) {
+            for(let i = 0; i <= 38; i++) {
                 ds[i] = 0;
             }
 
             bests.forEach(function(best, index){
-                const dw = parseInt(best.number);
+                const dw = best.number == '0' ? 37 : (best.number == '00' ? 38 : parseInt(best.number) );
                 let c;
 
                 switch (best.color) {
@@ -558,7 +519,7 @@
                 }
 
                 if (index <= 7) {
-                    $('#row__current' + index).text('#' + best.game);
+                    $('#row__current' + index).text('#' + best.event);
                     $('#lastestGame__row__number' + index)
                     .css({ background: colors[c] })
                     .text(best.number);
@@ -577,7 +538,7 @@
 
             });
 
-            for(let i = 0; i <= 37; i++) {
+            for(let i = 0; i <= 38; i++) {
                 $('#ds-' + i).text(ds[i]);
             }
 
@@ -589,6 +550,110 @@
             $('#color1').text(color[1]);
             $('#color2').text(color[2]);
         }
+
+        function loadImagenes() {
+            const token = window.location.pathname.split('/star/');
+
+            if (token[1]) {
+
+                const headers = new Headers({
+                    token: token[1]
+                });
+
+                const miInit = {
+                    method: 'GET',
+                    headers: headers,
+                    mode: 'cors',
+                    cache: 'default'
+                };
+
+                fetch('http://localhost:6600/v1/imagenes/' + token[1], miInit)
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(blob) {
+                    
+                    if (blob.data) {
+
+                        $('.board__logo--img4, .board__logo--img2, .board__logo--img3, .dados').css({                    'background-image': 'none'
+                        });
+
+                        if (blob.data.topLeft && blob.data.topLeft !== '') {
+                            $('.dados').css({
+                                'background-image': 'url(' + ('http://162.243.255.105:6600/img/' + blob.data.topLeft) + ')'
+                            });
+                        }
+
+                        if (blob.data.topRight && blob.data.topRight !== '') {
+                            $('.board__logo--img3').css({
+                                'background-image': 'url(' + ('http://162.243.255.105:6600/img/' + blob.data.topRight) + ')'
+                            });
+                        }
+
+                        if (blob.data.bottomLeft && blob.data.bottomLeft !== '') {
+                           $('.board__logo--img2').css({
+                                'background-image': 'url(' + ('http://162.243.255.105:6600/img/' + blob.data.bottomLeft) + ')'
+                            });
+                        }
+
+                        if (blob.data.bottomRight && blob.data.bottomRight !== '') {
+                            $('.board__logo--img4').css({
+                                'background-image': 'url(' + ('http://162.243.255.105:6600/img/' + blob.data.bottomRight) + ')'
+                            });
+                        }
+                    };
+
+                    if (blob.moneda) {
+                        initSocket('americana', blob.moneda.code);
+                    }
+                });
+            }
+        }
+
+        function initSocket(product, moneda) {
+            socket = io('http://localhost:6600/best-' + 'americana-' + moneda);
+
+            socket.emit('current', true);
+
+            socket.on('countdown', function(countdown){
+                const seconds = (parseInt(countdown.timer[0]) * 60) + parseInt(countdown.timer[1]);
+                const percentage = parseInt((seconds * 100) / 300);
+
+                $('.bar__proggress__height').css('height', percentage + '%');
+
+                if (percentage <= 15) {
+                    $('.bar__proggress__height').css('background-color', '#b72f20');
+                } else if (percentage <= 30) {
+                    $('.bar__proggress__height').css('background-color', '#b76720');
+                } else if (percentage <= 60) {
+                    $('.bar__proggress__height').css('background-color', '#a29320');
+                } else {
+                    $('.bar__proggress__height').css('background-color', '#29902d');
+                }
+
+                $('.countdownLeftOver__minutes').text(countdown.timer[0]);
+                $('.countdownLeftOver__seconds').text(countdown.timer[1]);
+                $('#current').text('JUEGO ACTUAL : #' + countdown.event);
+            });
+
+            socket.on('start', function(win){
+                fortune(win.degrees);
+            });
+
+            socket.on('statistics', function(best){
+                estadisticas(best)
+            });
+
+            socket.on('close', function(best){
+                if (best) {
+                $('.best').addClass('.close');
+                } else {
+                $('.best').removeClass('close');
+                }
+            });
+        }
+
+        loadImagenes();
     </script>
 </body>
 </html>
