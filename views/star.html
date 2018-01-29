@@ -476,7 +476,7 @@
 
     <!-- DEPENDENCIAS  -->
 
-    <script src="http://localhost:6600/socket.io/socket.io.js"></script>
+    <script src="http://162.243.255.105:6600/socket.io/socket.io.js"></script>
 
     <script src="/lib/jquery.min.js"></script>
     <script src="/lib/jquery-ui.min.js"></script>
@@ -567,7 +567,7 @@
                     cache: 'default'
                 };
 
-                fetch('http://localhost:6600/v1/imagenes/' + token[1], miInit)
+                fetch('http://162.243.255.105:6600/v1/imagenes/' + token[1], miInit)
                 .then(function(response) {
                     return response.json()
                 })
@@ -611,7 +611,7 @@
         }
 
         function initSocket(product, moneda) {
-            socket = io('http://localhost:6600/best-' + 'americana-' + moneda);
+            socket = io('http://162.243.255.105:6600/best-' + 'americana-' + moneda);
 
             socket.emit('current', true);
 
