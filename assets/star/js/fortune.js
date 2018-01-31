@@ -10,7 +10,7 @@ function fortune(options) {
     );
 
     // Posicionar la arrow
-    $('.arrow').addClass('spinner');
+    // $('.arrow').addClass('spinner');
     $('.winner').removeClass('spinner');
 
     // Iniciar Cuenta atras
@@ -32,7 +32,7 @@ function fortune(options) {
         $('.diamond').removeClass('fash').addClass('spinner');
 
         $('.winner').css({ background: colors[0] }).text('').addClass('spinner');
-		$('.arrow').css({ transition: 'initial' });
+		// $('.arrow').css({ transition: 'initial' });
 
         spin(options).then(function(winnerSquare){
             $('.diamond').addClass('fash').removeClass('spinner');
@@ -40,7 +40,7 @@ function fortune(options) {
 
             setTimeout(function(){
                 $('.winner').removeClass('win');
-                $('.arrow').css({ transition: 'all ease 2s' }).removeClass('spinner');
+                // $('.arrow').css({ transition: 'all ease 2s' }).removeClass('spinner');
                 $('.diamond').removeClass('fash');
 
                 $('.board__content__rulete__light--1 .lights.lights--child18 .lights__light').css('display', 'block');
@@ -183,3 +183,47 @@ function spin(win) {
 // INICIAR LOOP
 document.getElementById('loop').play();
 document.getElementById('loop').loop = true;
+
+/* MINIMIZAR, MAXIMIZAR el tablero */
+var scaleBoard = 1;
+
+function zoomMin() {
+    if (scaleBoard > 0.7 && scaleBoard < 2 ) {
+        scaleBoard -= 0.1;
+
+        $('.board__content__rulete').css({ transform: 'scale('+ scaleBoard +')'});
+    }
+}
+function zoomMax() {
+    if (scaleBoard > 0.6 && scaleBoard < 1.9 ) {
+        scaleBoard += 0.1;
+
+        $('.board__content__rulete').css({ transform: 'scale('+ scaleBoard +')'});
+    }
+}
+
+$(window).on('keydown', function(e){
+    switch (e.keyCode) {
+        case 109: // -
+            zoomMin();
+            break;
+        case 107: // +
+            zoomMax();
+            break;
+    }
+});
+
+$('#min').on('click', zoomMin)
+$('#max').on('click', zoomMax)
+
+/*FULL SCREEN*/
+fullscreen = function(e){
+      if (e.webkitRequestFullScreen) {
+        e.webkitRequestFullScreen();
+      } else if(e.mozRequestFullScreen) {
+        e.mozRequestFullScreen();
+      }
+  }
+document.getElementById('fullscreen').onclick = function(){
+    fullscreen(document.getElementById('board'));
+}

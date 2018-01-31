@@ -25,7 +25,7 @@ function lightsCreate(lg) {
 			});
 
 			lights.splice(light, 1);
-			
+
 		}, time);
 
 		if (i === 18) {
@@ -66,6 +66,7 @@ function lightsAnimate() {
 	}, 10000);
 }
 
+
 window.addEventListener('load', function() {
 	TweenLite.to(
         '.roulette', 2, {
@@ -76,6 +77,14 @@ window.addEventListener('load', function() {
         		lightsCreate(true);
 				lightsAnimate();
 
+				setTimeout(function(){
+					$('.board__content__rulete__light--1 .lights.lights--child18 .lights__light').css('display', 'none');
+					$('.arrow').addClass('spinner');
+
+					setTimeout(function(){
+						$('.arrow').css({ transition: 'initial' });
+					}, 2000);
+				}, 5000);
 
 				setTimeout(function(){
 			        let times = 100;
@@ -90,4 +99,3 @@ window.addEventListener('load', function() {
 
 
 });
-

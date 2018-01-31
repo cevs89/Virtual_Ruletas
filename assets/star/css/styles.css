@@ -233,7 +233,7 @@
 	justify-content: center;
 }
 .lights__light {
-	
+
 	left: 268px;
 	top: 42px;
 	width: 14px;
@@ -447,7 +447,7 @@
 	0% { transform: rotate(0deg); }
 	50% { transform: rotate(-37deg); }
 	50% { transform: rotate(-37deg); }
-	
+
 }
 
 
