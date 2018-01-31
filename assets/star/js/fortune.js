@@ -152,7 +152,7 @@ function spin(win) {
 
 					if (
 						gradosActual > idePreview ||
-						(idePreview === 360 && gradosActual >= 0 && gradosActual <= 9.473684210526316)
+						(idePreview === 360 && gradosActual >= 0 && gradosActual <= 9.72972972972973)
 					) {
 						$('.arrow').css({transition: 'all linear .03s'}).addClass('move');
 
