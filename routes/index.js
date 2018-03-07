@@ -11,6 +11,8 @@ views.get('/star', controllers.views.estrella);
 views.get('/star/:token', controllers.views.estrella);
 views.get('/victoria/:token', controllers.views.victoria);
 views.get('/victoria', controllers.views.victoria);
+views.get('/fifa', controllers.views.fifa);
+views.get('/fifa/:token', controllers.views.fifa);
 
 module.exports = {
     views

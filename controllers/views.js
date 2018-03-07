@@ -14,8 +14,13 @@ function victoria(req, res) {
     res.sendFile(path.join(__dirname, '../', 'views', 'victoria.html'));
 }
 
-module.exports = { 
+function fifa(req, res) {
+    res.sendFile(path.join(__dirname, '../', 'views', 'fifa.html'));
+}
+
+module.exports = {
     main,
     victoria,
-    estrella
+    estrella,
+    fifa
 };

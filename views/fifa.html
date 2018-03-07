@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Start HD</title>
+    <title>FIFA HD</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="/star/css/styles.css">
-    <link rel="stylesheet" href="/star/css/sidebar.css">
+    <link rel="stylesheet" href="/fifa/css/styles.css">
+    <link rel="stylesheet" href="/fifa/css/sidebar.css">
     <style type="text/css">
         body {
             font-family: 'Roboto', sans-serif;
@@ -33,7 +33,7 @@
             background-image: url(/img/logo.png);
         }
         .board__logo--img2 {
-            background-image: url(/star/img/logo.png);
+            background-image: url(/fifa/img/logo.png);
             width: 100px;
             height: 20px;
             min-height: 10%;
@@ -480,16 +480,16 @@
 
     <!-- DEPENDENCIAS  -->
 
-    <script src="http://104.236.132.136:6600/socket.io/socket.io.js"></script>
+    <script src="http://localhost:6600/socket.io/socket.io.js"></script>
 
     <script src="/lib/jquery.min.js"></script>
     <script src="/lib/jquery-ui.min.js"></script>
     <script src="/lib/TweenMax.min.js"></script>
 
     <!-- SCRIPT -->
-    <script src="/star/js/global.js"></script>
-    <script src="/star/js/fortune.js"></script>
-    <script src="/star/js/init.js"></script>
+    <script src="/fifa/js/global.js"></script>
+    <script src="/fifa/js/fortune.js"></script>
+    <script src="/fifa/js/init.js"></script>
 
     <script type="text/javascript">
         var socket;
@@ -556,7 +556,7 @@
         }
 
         function loadImagenes() {
-            const token = window.location.pathname.split('/star/');
+            const token = window.location.pathname.split('/fifa/');
 
             if (token[1]) {
 
@@ -571,7 +571,7 @@
                     cache: 'default'
                 };
 
-                fetch('http://104.236.132.136:6600/v1/imagenes/' + token[1], miInit)
+                fetch('http://localhost:6600/v1/imagenes/' + token[1], miInit)
                 .then(function(response) {
                     return response.json()
                 })
@@ -584,38 +584,38 @@
 
                         if (blob.data.topLeft && blob.data.topLeft !== '') {
                             $('.dados').css({
-                                'background-image': 'url(' + ('http://104.236.132.136:6600/img/' + blob.data.topLeft) + ')'
+                                'background-image': 'url(' + ('http://localhost:6600/img/' + blob.data.topLeft) + ')'
                             });
                         }
 
                         if (blob.data.topRight && blob.data.topRight !== '') {
                             $('.board__logo--img3').css({
-                                'background-image': 'url(' + ('http://104.236.132.136:6600/img/' + blob.data.topRight) + ')'
+                                'background-image': 'url(' + ('http://localhost:6600/img/' + blob.data.topRight) + ')'
                             });
                         }
 
                         if (blob.data.bottomLeft && blob.data.bottomLeft !== '') {
                            $('.board__logo--img2').css({
-                                'background-image': 'url(' + ('http://104.236.132.136:6600/img/' + blob.data.bottomLeft) + ')'
+                                'background-image': 'url(' + ('http://localhost:6600/img/' + blob.data.bottomLeft) + ')'
                             });
                         }
 
                         if (blob.data.bottomRight && blob.data.bottomRight !== '') {
                             $('.board__logo--img4').css({
-                                'background-image': 'url(' + ('http://104.236.132.136:6600/img/' + blob.data.bottomRight) + ')'
+                                'background-image': 'url(' + ('http://localhost:6600/img/' + blob.data.bottomRight) + ')'
                             });
                         }
                     };
 
                     if (blob.moneda) {
-                        initSocket('americana', blob.moneda.code);
+                        initSocket('mundialfifa', blob.moneda.code);
                     }
                 });
             }
         }
 
         function initSocket(product, moneda) {
-            socket = io('http://104.236.132.136:6600/best-' + 'americana-' + moneda);
+            socket = io('http://localhost:6600/best-' + 'mundialfifa-' + moneda);
 
             socket.emit('current', true);
 
