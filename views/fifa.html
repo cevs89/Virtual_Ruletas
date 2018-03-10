@@ -480,7 +480,7 @@
 
     <!-- DEPENDENCIAS  -->
 
-    <script src="http://localhost:6600/socket.io/socket.io.js"></script>
+    <script src="http://104.236.132.136:6600/socket.io/socket.io.js"></script>
 
     <script src="/lib/jquery.min.js"></script>
     <script src="/lib/jquery-ui.min.js"></script>
@@ -571,7 +571,7 @@
                     cache: 'default'
                 };
 
-                fetch('http://localhost:6600/v1/imagenes/' + token[1], miInit)
+                fetch('http://104.236.132.136:6600/v1/imagenes/' + token[1], miInit)
                 .then(function(response) {
                     return response.json()
                 })
@@ -584,25 +584,25 @@
 
                         if (blob.data.topLeft && blob.data.topLeft !== '') {
                             $('.dados').css({
-                                'background-image': 'url(' + ('http://localhost:6600/img/' + blob.data.topLeft) + ')'
+                                'background-image': 'url(' + ('http://104.236.132.136:6600/img/' + blob.data.topLeft) + ')'
                             });
                         }
 
                         if (blob.data.topRight && blob.data.topRight !== '') {
                             $('.board__logo--img3').css({
-                                'background-image': 'url(' + ('http://localhost:6600/img/' + blob.data.topRight) + ')'
+                                'background-image': 'url(' + ('http://104.236.132.136:6600/img/' + blob.data.topRight) + ')'
                             });
                         }
 
                         if (blob.data.bottomLeft && blob.data.bottomLeft !== '') {
                            $('.board__logo--img2').css({
-                                'background-image': 'url(' + ('http://localhost:6600/img/' + blob.data.bottomLeft) + ')'
+                                'background-image': 'url(' + ('http://104.236.132.136:6600/img/' + blob.data.bottomLeft) + ')'
                             });
                         }
 
                         if (blob.data.bottomRight && blob.data.bottomRight !== '') {
                             $('.board__logo--img4').css({
-                                'background-image': 'url(' + ('http://localhost:6600/img/' + blob.data.bottomRight) + ')'
+                                'background-image': 'url(' + ('http://104.236.132.136:6600/img/' + blob.data.bottomRight) + ')'
                             });
                         }
                     };
@@ -615,7 +615,7 @@
         }
 
         function initSocket(product, moneda) {
-            socket = io('http://localhost:6600/best-' + 'mundialfifa-' + moneda);
+            socket = io('http://104.236.132.136:6600/best-' + 'mundialfifa-' + moneda);
 
             socket.emit('current', true);
 

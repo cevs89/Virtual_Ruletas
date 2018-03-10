@@ -3,7 +3,7 @@ const squares = [
 	{ name: "Marruecos", number: "28", color: 1, position: { start: 341.0526315789475, end: 350.5263157894737 } },
 	{ name: "Francia", number: "09", color: 2, position: { start: 331.5789473684212, end: 341.0526315789474 } },
 	{ name: "Iran", number: "26", color: 1, position: { start: 322.1052631578948, end: 331.5789473684211 } },
-	{ name: "Camerun", number: "30", color: 2, position: { start: 312.6315789473685, end: 322.1052631578947 } },
+	{ name: "Senegal", number: "30", color: 2, position: { start: 312.6315789473685, end: 322.1052631578947 } },
 	{ name: "Mexico", number: "11", color: 1, position: { start: 303.1578947368422, end: 312.6315789473684 } },
 	{ name: "Australia", number: "07", color: 2, position: { start: 293.6842105263159, end: 303.1578947368421 } },
 	{ name: "Suiza", number: "20", color: 1, position: { start: 284.2105263157896, end: 293.6842105263158 } },
@@ -29,14 +29,14 @@ const squares = [
 	{ name: "España", number: "31", color: 1, position: { start: 94.73684210526317, end: 104.2105263157895 } },
 	{ name: "Belgica", number: "18", color: 2, position: { start: 85.263157894736845, end: 94.73684210526316 } },
 	{ name: "Tarjeta Roja", number: "06", color: 1, position: { start: 75.789473684210529, end: 85.263157894736844 } },
-	{ name: "Gallo", number: "21", color: 2, position: { start: 66.315789473684213, end: 75.789473684210528 } },
-	{ name: "Alemania", number: "33", color: 1, position: { start: 56.842105263157897, end: 66.315789473684212 } },
-	{ name: "Panama", number: "16", color: 2, position: { start: 47.36842105263159, end: 56.842105263157896 } },
-	{ name: "Nigeria", number: "04", color: 1, position: { start: 37.894736842105265, end: 47.36842105263158 } },
-	{ name: "Costa Rica", number: "23", color: 2, position: { start: 28.421052631578949, end: 37.894736842105264 } },
-	{ name: "Argentina", number: "35", color: 1, position: { start: 18.94736842105264, end: 28.421052631578948 } },
-	{ name: "Colombia", number: "14", color: 2, position: { start: 9.473684210526317, end: 18.94736842105263 } },
-	{ name: "Arabia Saudi", number: "02", color: 1, position: { start: 0, end: 9.473684210526316 } }
+	{ name: "Alemania", number: "21", color: 2, position: { start: 66.315789473684213, end: 75.789473684210528 } },
+	{ name: "Panama", number: "33", color: 1, position: { start: 56.842105263157897, end: 66.315789473684212 } },
+	{ name: "Nigeria", number: "16", color: 2, position: { start: 47.36842105263159, end: 56.842105263157896 } },
+	{ name: "Costa Rica", number: "04", color: 1, position: { start: 37.894736842105265, end: 47.36842105263158 } },
+	{ name: "Argentina", number: "23", color: 2, position: { start: 28.421052631578949, end: 37.894736842105264 } },
+	{ name: "Colombia", number: "35", color: 1, position: { start: 18.94736842105264, end: 28.421052631578948 } },
+	{ name: "Arabia Saudi", number: "14", color: 2, position: { start: 9.473684210526317, end: 18.94736842105263 } },
+	{ name: "Croacia", number: "02", color: 1, position: { start: 0, end: 9.473684210526316 } }
 ];
 
 const colors = ['#00571f', '#14121a', '#CA0000'];
