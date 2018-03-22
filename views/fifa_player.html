@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" id="board">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FIFA HD</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="/fifa/css/styles.css">
+    <link rel="stylesheet" href="/fifa/css/sidebar.css">
+    <style type="text/css">
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+        }
+        .board__logo__content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 160px;
+        }
+        .board__logo {
+            position: absolute;
+            width: 120px;
+            height: 100px;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        .board__content__content--rulete {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+        }
+        .full{
+          position: fixed;
+          bottom: 140px;
+          left: 10px;
+          display: flex;
+          width: 16px;
+          z-index: 100000;
+        }
+        .zoom {
+            position: fixed;
+            bottom: 100px;
+            left: 10px;
+            display: flex;
+            width: 16px;
+            z-index: 100000;
+          }
+        .zoom_button, .full_button {
+            flex: 1;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            background-color: #fff;
+        }
+        .zoom_button:hover, .full_button:hover {
+            background-color: rgba(193, 192, 192, 0.8);
+            cursor: pointer;
+        }
+        .zoom_button:nth-child(odd) {
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+        .zoom_button:nth-child(even) {
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+        .full_button{}
+    </style>
+</head>
+<body class="body">
+    <div class="board">
+
+        <div class="board__header">
+            <div id="current">JUEGO ACTUAL : ESPERANDO...</div>
+        </div>
+        <div class="board__content">
+
+            <div class="board__content__content--rulete">
+                <div class="board__content__rulete">
+
+                    <div class="winner">06</div>
+                    <div class="arrow"></div>
+
+                    <div class="countdown">3</div>
+                    <div class="countdown countdown--1">2</div>
+                    <div class="countdown countdown--2">GO!</div>
+
+                    <div class="board__content__rulete__madera"></div>
+                    <div class="board__content__rulete__content">
+                        <div class="board__content__rulete__content__img roulette"></div>
+                    </div>
+
+                    <div class="board__content__rulete__light board__content__rulete__light--1"></div>
+                    <div class="board__content__rulete__light board__content__rulete__light--2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="loop" src="/audio/loop.mp3" preload="auto"></audio>
+    <audio id="countdown" src="/audio/countdown.mp3" preload="auto"></audio>
+    <audio id="rullete" src="/audio/rullete.mp3" preload="auto"></audio>
+
+    <!-- DEPENDENCIAS  -->
+
+    <script src="http://104.236.132.136:6600/socket.io/socket.io.js"></script>
+
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/jquery-ui.min.js"></script>
+    <script src="/lib/TweenMax.min.js"></script>
+
+    <!-- SCRIPT -->
+    <script src="/fifa/js/global.js"></script>
+    <script src="/fifa/js/fortune.js"></script>
+    <script src="/fifa/js/init.js"></script>
+
+    <script type="text/javascript">
+        var socket;
+
+        function initSocket(product, moneda) {
+            socket = io('http://104.236.132.136:6600/best-' + 'mundialfifa-' + moneda);
+
+            socket.emit('current', true);
+
+            socket.on('countdown', function(countdown){
+                const seconds = (parseInt(countdown.timer[0]) * 60) + parseInt(countdown.timer[1]);
+                const percentage = parseInt((seconds * 100) / 300);
+
+                $('.bar__proggress__height').css('height', percentage + '%');
+
+                if (percentage <= 15) {
+                    $('.bar__proggress__height').css('background-color', '#b72f20');
+                } else if (percentage <= 30) {
+                    $('.bar__proggress__height').css('background-color', '#b76720');
+                } else if (percentage <= 60) {
+                    $('.bar__proggress__height').css('background-color', '#a29320');
+                } else {
+                    $('.bar__proggress__height').css('background-color', '#29902d');
+                }
+
+                $('.countdownLeftOver__minutes').text(countdown.timer[0]);
+                $('.countdownLeftOver__seconds').text(countdown.timer[1]);
+                $('#current').text('JUEGO ACTUAL : #' + countdown.event);
+            });
+
+            socket.on('start', function(win){
+                fortune(win.degrees);
+            });
+
+            socket.on('close', function(best){
+                if (best) {
+                $('.best').addClass('.close');
+                } else {
+                $('.best').removeClass('close');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
