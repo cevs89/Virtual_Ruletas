@@ -120,6 +120,8 @@
     <script type="text/javascript">
         var socket;
 
+        const code = window.location.pathname.split('/fifa/');
+
         function initSocket(product, moneda) {
             socket = io('http://104.236.132.136:6600/best-' + 'mundialfifa-' + moneda);
 
@@ -158,6 +160,8 @@
                 }
             });
         }
+
+        initSocket('mundialfifa', code[1]);
     </script>
 </body>
 </html>

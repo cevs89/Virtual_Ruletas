@@ -34,6 +34,10 @@ function animalitos(req, res) {
     res.sendFile(path.join(__dirname, '../', 'views', 'animalitos.html'));
 }
 
+function animalitosPlayer(req, res) {
+    res.sendFile(path.join(__dirname, '../', 'views', 'animalitos_player.html'));
+}
+
 module.exports = {
     main,
     victoria,
@@ -42,5 +46,6 @@ module.exports = {
     animalitos,
     victoriaPlayer,
     fifaPlayer,
-    starPlayer
+    starPlayer,
+    animalitosPlayer
 };

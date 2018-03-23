@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Start HD</title>
+    <title>Animalitos</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="/star/css/styles.css">
-    <link rel="stylesheet" href="/star/css/sidebar.css">
+    <link rel="stylesheet" href="/animalitos/css/styles.css">
+    <link rel="stylesheet" href="/animalitos/css/sidebar.css">
     <style type="text/css">
         body {
             font-family: 'Roboto', sans-serif;
@@ -26,11 +26,51 @@
             background-size: 100% 100%;
             background-repeat: no-repeat;
         }
+        .board__logo--img {
+            width: 200px;
+            top: 10px;
+            left: 10px;
+            /* background-image: url(/img/logo.png); */
+        }
+        .board__logo--img2 {
+            /* background-image: url(/star/img/logo.png); */
+            width: 100px;
+            height: 20px;
+            min-height: 10%;
+            bottom: 5px;
+            left: 6px;
+        }
+        .board__logo--img3 {
+            /* background-image: url(/img/cojedes.png); */
+            min-height: 10%;
+            width: 10%;
+            top: 10px;
+            right: 10px;
+        }
+        .board__logo--img4 {
+            /* background-image: url(/img/conalot.png); */
+            width: 120px;
+            height: 60px;
+            min-width: 10%;
+            min-height: 5%;
+            bottom: 50px;
+            right: 10px;
+        }
         .board__content__content--rulete {
             display: flex;
             flex: 1;
             justify-content: center;
             align-items: center;
+        }
+        .dados {
+            /* background-image: url(/img/dados.png); */
+            width: 150px;
+            min-height: 10%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-size: 100% 100%;
+            z-index: 1000000;
         }
         .full{
           position: fixed;
@@ -67,7 +107,6 @@
             border-top-left-radius: 0px;
             border-bottom-left-radius: 0px;
         }
-        .full_button{}
     </style>
 </head>
 <body class="body">
@@ -113,18 +152,18 @@
     <script src="/lib/TweenMax.min.js"></script>
 
     <!-- SCRIPT -->
-    <script src="/star/js/global.js"></script>
-    <script src="/star/js/fortune.js"></script>
-    <script src="/star/js/init.js"></script>
+    <script src="/animalitos/js/global.js"></script>
+    <script src="/animalitos/js/fortune.js"></script>
+    <script src="/animalitos/js/init.js"></script>
 
     <script type="text/javascript">
         var socket;
 
-        const code = window.location.pathname.split('/star/');
+        const code = window.location.pathname.split('/animalitos/');
 
         function initSocket(product, moneda) {
-            socket = io('http://104.236.132.136:6600/best-' + 'americana-' + moneda);
-
+            socket = io('http://104.236.132.136:6600/best-' + 'animalitos-' + moneda);
+                
             socket.emit('current', true);
 
             socket.on('countdown', function(countdown){
@@ -152,6 +191,10 @@
                 fortune(win.degrees);
             });
 
+            socket.on('statistics', function(best){
+                estadisticas(best)
+            });
+
             socket.on('close', function(best){
                 if (best) {
                 $('.best').addClass('.close');
@@ -161,7 +204,7 @@
             });
         }
 
-        initSocket('americana', code[1]);
+        initSocket('animalitos', code[1]);
     </script>
 </body>
 </html>
