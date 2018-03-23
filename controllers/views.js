@@ -30,11 +30,16 @@ function fifa(req, res) {
     res.sendFile(path.join(__dirname, '../', 'views', 'fifa.html'));
 }
 
+function animalitos(req, res) {
+    res.sendFile(path.join(__dirname, '../', 'views', 'animalitos.html'));
+}
+
 module.exports = {
     main,
     victoria,
     estrella,
     fifa,
+    animalitos,
     victoriaPlayer,
     fifaPlayer,
     starPlayer

@@ -17,6 +17,8 @@ views.get('/player/fifa', controllers.views.fifaPlayer);
 views.get('/player/animalitos', controllers.views.victoriaPlayer);
 views.get('/fifa', controllers.views.fifa);
 views.get('/fifa/:token', controllers.views.fifa);
+views.get('/animalitos', controllers.views.animalitos);
+views.get('/animalitos/:token', controllers.views.animalitos);
 
 module.exports = {
     views
