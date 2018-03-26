@@ -191,10 +191,6 @@
                 fortune(win.degrees);
             });
 
-            socket.on('statistics', function(best){
-                estadisticas(best)
-            });
-
             socket.on('close', function(best){
                 if (best) {
                 $('.best').addClass('.close');

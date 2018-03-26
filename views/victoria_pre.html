@@ -90,7 +90,6 @@
         var socket = io();
 
         socket.on('countdown', function(countdown){
-            console.log(countdown)
             $('.countdownLeftOver__minutes').text(countdown[0]);
             $('.countdownLeftOver__seconds').text(countdown[1]);
         });
