@@ -163,7 +163,7 @@
 
         function initSocket(product, moneda) {
             socket = io('http://104.236.132.136:6600/best-' + 'animalitos-' + moneda);
-                
+
             socket.emit('current', true);
 
             socket.on('countdown', function(countdown){
