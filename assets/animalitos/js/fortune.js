@@ -8,7 +8,7 @@ function fortune(options) {
             ease: 'easeInOut'
         }
     );
-
+	$('.winner-img').css({ opacity: '0' });
     // Posicionar la arrow
     // $('.arrow').addClass('spinner');
     $('.winner').removeClass('spinner');
@@ -31,15 +31,15 @@ function fortune(options) {
         $('.countdown').removeClass('go');
         $('.diamond').removeClass('fash').addClass('spinner');
 
-        $('.winner').css({ background: colors[0] }).text('').addClass('spinner');
+        $('.winner-img').css({ opacity: '0' });
 		// $('.arrow').css({ transition: 'initial' });
 
         spin(options).then(function(winnerSquare){
             $('.diamond').addClass('fash').removeClass('spinner');
-            $('.winner').css({ background: colors[winnerSquare.color] }).text(winnerSquare.number).addClass('win');
+            $('.winner-img').addClass('win');
 
             setTimeout(function(){
-                $('.winner').removeClass('win');
+                $('.winner-img').removeClass('win');
                 // $('.arrow').css({ transition: 'all ease 2s' }).removeClass('spinner');
                 $('.diamond').removeClass('fash');
 
@@ -126,7 +126,7 @@ function spin(win) {
 	let preview = 0;
 	let gradosActual;
 	let gradosPreview;
-	let idePreview = 37;
+	let idePreview = 37; console.log(win)
 
 	return new Promise((resolve, reject) =>{
 		try {
@@ -134,6 +134,8 @@ function spin(win) {
 				duration: 31000,
 				easing: 'easeOutExpo',
 				step: function(now) {
+					$('.winner-img').css({ opacity: '0' });
+
 					let ide;
 
 					if (now > (360 * turns)) {
@@ -163,7 +165,8 @@ function spin(win) {
 						$('.arrow').css({transition: 'all linear .2s'}).removeClass('move');
 					}
 
-					$('.winner').css({background: colors[squares[ide].color]}).text(squares[ide].number);
+					// $('.winner').css({background: colors[squares[ide].color]}).text(squares[ide].number);
+					$('.winner-img.img' + squares[ide].number).css({ opacity: 1 });
 
 					$elem.css({ transform: 'rotate(' + now + 'deg)' });
 
@@ -213,17 +216,3 @@ $(window).on('keydown', function(e){
     }
 });
 
-$('#min').on('click', zoomMin)
-$('#max').on('click', zoomMax)
-
-/*FULL SCREEN*/
-fullscreen = function(e){
-      if (e.webkitRequestFullScreen) {
-        e.webkitRequestFullScreen();
-      } else if(e.mozRequestFullScreen) {
-        e.mozRequestFullScreen();
-      }
-  }
-document.getElementById('fullscreen').onclick = function(){
-    fullscreen(document.getElementById('board'));
-}

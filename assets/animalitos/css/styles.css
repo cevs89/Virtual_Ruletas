@@ -140,7 +140,7 @@
 .winner.spinner{
 	opacity: 1;
 }
-.winner.win {
+.winner-img.win {
 	animation-name: spinMouseup;
     animation-duration: .5s;
     animation-iteration-count: infinite;
@@ -450,19 +450,6 @@
 	50% { transform: rotate(-37deg); }
 
 }
-
-
-
-/*
-
-
-
-
-
-
-*/
-
-
 .board__header, .board__footer{
 	font-size: 18px;
 	font-weight: 900;
@@ -475,4 +462,21 @@
 .board__footer {
 	display: flex;
 	justify-content: flex-end;
+}
+.winner-img{
+	position: absolute;
+    min-width: 150px;
+    max-width: 193px;
+    min-height: 150px;
+    max-height: 109px;
+    top: 228px;
+    left: 225px;
+    color: #f5c66b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+    font-weight: 900;
+    opacity: 0;
+    z-index: 999999;
 }
