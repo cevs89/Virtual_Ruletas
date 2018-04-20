@@ -183,7 +183,7 @@
 
     <!-- DEPENDENCIAS  -->
 
-    <script src="http://localhost:6600/socket.io/socket.io.js"></script>
+    <script src="http://104.236.132.136:6600/socket.io/socket.io.js"></script>
 
     <script src="/lib/jquery.min.js"></script>
     <script src="/lib/jquery-ui.min.js"></script>
@@ -200,7 +200,7 @@
         const code = window.location.pathname.split('/animalitos/');
 
         function initSocket(product, moneda) {
-            socket = io('http://localhost:6600/best-' + 'animalitos-' + moneda);
+            socket = io('http://104.236.132.136:6600/best-' + 'animalitos-' + moneda);
 
             socket.emit('current', true);
 
