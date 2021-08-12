@@ -216,3 +216,17 @@ $(window).on('keydown', function(e){
     }
 });
 
+$('#min').on('click', zoomMin)
+$('#max').on('click', zoomMax)
+
+/*FULL SCREEN*/
+fullscreen = function(e){
+      if (e.webkitRequestFullScreen) {
+        e.webkitRequestFullScreen();
+      } else if(e.mozRequestFullScreen) {
+        e.mozRequestFullScreen();
+      }
+  }
+document.getElementById('fullscreen').onclick = function(){
+    fullscreen(document.getElementById('board'));
+}
