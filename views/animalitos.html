@@ -192,7 +192,7 @@
         </div>
         <div class="board__footer">
             <div class="countdownLeftOver">
-                <span class="best">BETS CLOSE</span>
+                <span class="best">BETS CLOSE IN</span>
                 <span class="countdownLeftOver__minutes">IN</span>
                 <span class="countdownLeftOver__divider">:</span>
                 <span class="countdownLeftOver__seconds">COURSE</span>
@@ -675,7 +675,7 @@
 
                 $('.countdownLeftOver__minutes').text(countdown.timer[0]);
                 $('.countdownLeftOver__seconds').text(countdown.timer[1]);
-                $('#current').text('JUEGO ACTUAL : #' + countdown.event);
+                $('#current').text('CURRENT GAME : #' + countdown.event);
             });
 
             socket.on('start', function(win){
