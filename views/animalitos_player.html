@@ -183,7 +183,7 @@
 
     <!-- DEPENDENCIAS  -->
 
-    <script src="http://api.lasvegasonline.co/socket.io/socket.io.js"></script>
+    <script src="https://api.lasvegasonline.co/socket.io/socket.io.js"></script>
 
     <script src="/lib/jquery.min.js"></script>
     <script src="/lib/jquery-ui.min.js"></script>
@@ -200,7 +200,7 @@
         const code = window.location.pathname.split('/animalitos/');
 
         function initSocket(product, moneda) {
-            socket = io('http://api.lasvegasonline.co/best-' + 'animalitos-' + moneda);
+            socket = io('https://api.lasvegasonline.co/best-' + 'animalitos-' + moneda);
 
             socket.emit('current', true);
 
